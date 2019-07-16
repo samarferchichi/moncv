@@ -559,7 +559,7 @@
                                 <div role="tabpanel" class="tab-pane fade in active" id="home">
                                     <div class="panel panel-default panel-post">
                                         <form action="about" method="POST" class="pb-5" enctype="multipart/form-data">
-
+{{dump($aboutsg)}}
                                             <div class="panel-footer">
                                                 <h2 class="card-inside-title">Info personnelle</h2>
                                                 <div class="row clearfix">

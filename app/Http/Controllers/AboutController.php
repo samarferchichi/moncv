@@ -26,6 +26,8 @@ class AboutController extends BaseController
 
     public function create()
     {
+        $user = User::find(1);
+        
     }
 
     public function store()
@@ -43,13 +45,20 @@ class AboutController extends BaseController
         $about->siteweb = request('siteweb');
         $about->image = request('image');
 
+//        about::create(request()->only([
+//            'prenom',
+//            'nom',
+//        ]));
+        
+        
+        
         $about->save();
         $abouts = about::all();
-     //  dd($abouts);
+       dd($abouts);
         return view('about', compact('abouts'));
 
     }
 
 
-  
+
 }

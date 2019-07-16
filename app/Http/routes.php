@@ -24,7 +24,9 @@ Route::get('/operations', function () {
 });
 
 Route::get('/about', function () {
-    return view('about');
+
+    
+    return view('about', ['aboutsg' => 'hello']);
 });
 
 Route::post('about', 'AboutController@store');
