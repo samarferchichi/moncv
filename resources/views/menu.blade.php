@@ -19,5 +19,11 @@
                 <span>About</span>
             </a>
         </li>
+        <li>
+            <a href="experiences">
+                <i class="material-icons">assignment_ind</i>
+                <span>Experiences</span>
+            </a>
+        </li>
     </ul>
 </div>

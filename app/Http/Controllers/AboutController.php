@@ -26,7 +26,7 @@ class AboutController extends BaseController
 
     public function create()
     {
-        $user = User::find(1);
+      //  $user = User::find(1);
         
     }
 
@@ -51,10 +51,10 @@ class AboutController extends BaseController
 //        ]));
         
         
-        
         $about->save();
         $abouts = about::all();
-       dd($abouts);
+
+        // dd($abouts);
         return view('about', compact('abouts'));
 
     }

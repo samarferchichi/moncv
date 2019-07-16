@@ -25,8 +25,11 @@ Route::get('/operations', function () {
 
 Route::get('/about', function () {
 
-    
-    return view('about', ['aboutsg' => 'hello']);
+    $abouts = \App\about::all();
+    return view('about', ['abouts' => $abouts]);
 });
 
+
 Route::post('about', 'AboutController@store');
+
+Route::post('experiences', 'ExperiencesController@store')->name('experiences.store');

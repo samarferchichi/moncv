@@ -44,11 +44,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
 </head>
 
 <body class="theme-red">
-<!-- Page Loader -->
 
 <!-- #END# Page Loader -->
 <!-- Overlay For Sidebars -->
@@ -285,7 +283,7 @@
         <!-- User Info -->
         <div class="user-info">
             <div class="image">
-                <img src="../../images/user.png" width="48" height="48" alt="User"/>
+                <img src="../../../images/user.png" width="48" height="48" alt="User"/>
             </div>
             <div class="info-container">
                 <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">John Doe</div>
@@ -306,12 +304,13 @@
         </div>
         <!-- #User Info -->
         <!-- Menu -->
+
     @include('menu')
     <!-- #Menu -->
         <!-- Footer -->
         <div class="legal">
             <div class="copyright">
-                &copy; 2016 - 2017 <a href="javascript:void(0);">AdminBSB - Material Design</a>.
+                <a class="navbar-brand" href="/">ADMIN SAMAR-FER - MATERIAL DESIGN</a>
             </div>
             <div class="version">
                 <b>Version: </b> 1.0.5
@@ -464,312 +463,119 @@
     </aside>
     <!-- #END# Right Sidebar -->
 </section>
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <form action="{{route('experiences.store')}}" method="POST" class="pb-5" enctype="multipart/form-data">
 
-<section class="content">
-    <div class="container-fluid">
-        <div class="row clearfix">
-            <div class="col-xs-12 col-sm-3">
-                <div class="card profile-card">
-                    <div class="profile-header">&nbsp;
-                        <img src="">
-                    </div>
-                    <div class="profile-body">
+            <div class="modal-header">
+                <h4 class="modal-title">Ajout d'une expérience</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
 
-                        <div class="content-area">
-                            <h3>Samar Ferchichi</h3>
-                            <p>Web Software Developer</p>
-                            <p>Administrator</p>
+            <div class="modal-body">
+                <div class="">
+                    <div class="row clearfix">
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="text" name="annees" class="form-control"
+                                           placeholder="Années"/>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="profile-footer">
-                        <div class="modal fade" id="myModal">
-                            <div class="modal-dialog modal-xl">
-                                <div class="modal-content">
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="text" name="date" class="form-control"
+                                           placeholder="Date"/>
+                                </div>
+                            </div>
+                        </div>
 
-
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="text" name="position" class="form-control"
+                                           placeholder="Position"/>
                                 </div>
                             </div>
                         </div>
                     </div>
+
+                    <div class="form-group">
+                        <div class="form-line">
+                            <input type="text" name="place" class="form-control"
+                                   placeholder="Place"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="form-line">
+                            <input type="text" name="post" class="form-control"
+                                   placeholder="Post"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-line">
+                            <input type="text" name="description" class="form-control"
+                                   placeholder="Description"/>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="card card-about-me">
-                    <div class="header">
-                        <h2>ABOUT ME</h2>
-                    </div>
-                    <div class="body">
-                        <ul>
+            </div>
+
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-secondary" data-dismiss="modal">Ajouter</button>
+            </div>
+
+            {!! csrf_field() !!}
+
+            </form>
+        </div>
+    </div>
+</div>
+<section class="content">
+    <div class="container-fluid">
+        <div class="block-header">
+            <button type="submit" class="btn btn-success" data-toggle="modal" data-target="#myModal">Ajouter une
+                expérience
+            </button>
+        </div>
+
+
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                <div class="card">
+                    <div class="header bg-pink">
+                        <h2>
+                            Light Blue - Title
+                            <small>Description text here...</small>
+                        </h2>
+                        <ul class="header-dropdown m-r--5">
                             <li>
-                                <div class="title">
-                                    <i class="material-icons">library_books</i>
-                                    Education
-                                </div>
-                                <div class="content">
-                                    B.S. in Computer Science from the University of Tennessee at Knoxville
-                                </div>
+                                <a href="javascript:void(0);" data-toggle="cardloading" data-loading-effect="timer"
+                                   data-loading-color="lightBlue">
+                                    <i class="material-icons">loop</i>
+                                </a>
                             </li>
-                            <li>
-                                <div class="title">
-                                    <i class="material-icons">location_on</i>
-                                    Location
-                                </div>
-                                <div class="content">
-                                    Malibu, California
-                                </div>
-                            </li>
-                            <li>
-                                <div class="title">
-                                    <i class="material-icons">edit</i>
-                                    Skills
-                                </div>
-                                <div class="content">
-                                    <span class="label bg-red">UI Design</span>
-                                    <span class="label bg-teal">JavaScript</span>
-                                    <span class="label bg-blue">PHP</span>
-                                    <span class="label bg-amber">Node.js</span>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="title">
-                                    <i class="material-icons">notes</i>
-                                    Description
-                                </div>
-                                <div class="content">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque.
-                                </div>
+                            <li class="dropdown">
+                                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"
+                                   role="button" aria-haspopup="true" aria-expanded="false">
+                                    <i class="material-icons">more_vert</i>
+                                </a>
+                                <ul class="dropdown-menu pull-right">
+                                    <li><a href="javascript:void(0);">Action</a></li>
+                                    <li><a href="javascript:void(0);">Another action</a></li>
+                                    <li><a href="javascript:void(0);">Something else here</a></li>
+                                </ul>
                             </li>
                         </ul>
                     </div>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-9">
-                <div class="card">
                     <div class="body">
-                        <div>
-                            <ul class="nav nav-tabs" role="tablist">
-                                <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab"
-                                                                          data-toggle="tab">Home</a></li>
-                                <li role="presentation"><a href="#profile_settings" aria-controls="settings" role="tab"
-                                                           data-toggle="tab">Profile Settings</a></li>
-                                <li role="presentation"><a href="#change_password_settings" aria-controls="settings"
-                                                           role="tab" data-toggle="tab">Change Password</a></li>
-                            </ul>
-
-                            <div class="tab-content">
-                                <div role="tabpanel" class="tab-pane fade in active" id="home">
-                                    <div class="panel panel-default panel-post">
-                                        <form action="about" method="POST" class="pb-5" enctype="multipart/form-data">
-                                            @foreach( $abouts as $about )
-                                                {{dump($about)}}
-                                            @endforeach
-                                            <div class="panel-footer">
-                                                <h2 class="card-inside-title">Info personnelle</h2>
-                                                <div class="row clearfix">
-                                                    <div class="col-sm-4">
-                                                        <div class="form-group">
-                                                            <div class="form-line">
-                                                                <input type="text" name="nom" class="form-control"
-                                                                       placeholder="Nom"/>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-sm-4">
-                                                        <div class="form-group">
-                                                            <div class="form-line">
-                                                                <input type="text" name="prenom" class="form-control"
-                                                                       placeholder="Prenom"/>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-sm-4">
-                                                        <div class="form-group">
-                                                            <div class="form-line">
-                                                                <input type="text" name="age" class="form-control"
-                                                                       placeholder="age"/>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <div class="form-line">
-                                                        <input type="text" name="post" class="form-control"
-                                                               placeholder="Post"/>
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <div class="form-line">
-                                                        <input type="text" name="adresse" class="form-control"
-                                                               placeholder="Adresse"/>
-                                                    </div>
-                                                </div>
-
-                                                <div class="row clearfix">
-                                                    <div class="col-sm-4">
-                                                        <div class="form-group">
-                                                            <div class="form-line">
-                                                                <input type="text" name="numtel" class="form-control"
-                                                                       placeholder="Numéro de Téléphone"/>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-sm-4">
-                                                        <div class="form-group">
-                                                            <div class="form-line">
-                                                                <input type="text" name="mobile" class="form-control"
-                                                                       placeholder="Mobile"/>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-sm-4">
-                                                        <div class="form-group">
-                                                            <div class="form-line">
-                                                                <input type="email" name="email" class="form-control"
-                                                                       placeholder="Email "/>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-sm-4">
-                                                        <div class="form-group">
-                                                            <div class="form-line">
-                                                                <input type="text" name="fax" class="form-control"
-                                                                       placeholder="Fax "/>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-sm-4">
-                                                        <div class="form-group">
-                                                            <div class="form-line">
-                                                                <input type="text" name="siteweb" class="form-control"
-                                                                       placeholder="Site web "/>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-sm-4">
-                                                        <div class="form-group">
-                                                            <input type="text" name="image" class="form-control"
-                                                                   placeholder="Photo"/>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                            <button type="submit" class="btn btn-primary btn-lg waves-effect btn-block">
-                                                Modifier
-                                            </button>
-
-                                            {!! csrf_field() !!}
-
-                                        </form>
-                                    </div>
-
-                                </div>
-                                <div role="tabpanel" class="tab-pane fade in" id="profile_settings">
-                                    <form class="form-horizontal">
-                                        <div class="form-group">
-                                            <label for="NameSurname" class="col-sm-2 control-label">Name Surname</label>
-                                            <div class="col-sm-10">
-                                                <div class="form-line">
-                                                    <input type="text" class="form-control" id="NameSurname"
-                                                           name="NameSurname" placeholder="Name Surname"
-                                                           value="Marc K. Hammond" required>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="Email" class="col-sm-2 control-label">Email</label>
-                                            <div class="col-sm-10">
-                                                <div class="form-line">
-                                                    <input type="email" class="form-control" id="Email" name="Email"
-                                                           placeholder="Email" value="example@example.com" required>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="InputExperience"
-                                                   class="col-sm-2 control-label">Experience</label>
-
-                                            <div class="col-sm-10">
-                                                <div class="form-line">
-                                                    <textarea class="form-control" id="InputExperience"
-                                                              name="InputExperience" rows="3"
-                                                              placeholder="Experience"></textarea>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="InputSkills" class="col-sm-2 control-label">Skills</label>
-
-                                            <div class="col-sm-10">
-                                                <div class="form-line">
-                                                    <input type="text" class="form-control" id="InputSkills"
-                                                           name="InputSkills" placeholder="Skills">
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <div class="col-sm-offset-2 col-sm-10">
-                                                <input type="checkbox" id="terms_condition_check"
-                                                       class="chk-col-red filled-in"/>
-                                                <label for="terms_condition_check">I agree to the <a href="#">terms and
-                                                        conditions</a></label>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="col-sm-offset-2 col-sm-10">
-                                                <button type="submit" class="btn btn-danger">SUBMIT</button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                                <div role="tabpanel" class="tab-pane fade in" id="change_password_settings">
-                                    <form class="form-horizontal">
-                                        <div class="form-group">
-                                            <label for="OldPassword" class="col-sm-3 control-label">Old Password</label>
-                                            <div class="col-sm-9">
-                                                <div class="form-line">
-                                                    <input type="password" class="form-control" id="OldPassword"
-                                                           name="OldPassword" placeholder="Old Password" required>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="NewPassword" class="col-sm-3 control-label">New Password</label>
-                                            <div class="col-sm-9">
-                                                <div class="form-line">
-                                                    <input type="password" class="form-control" id="NewPassword"
-                                                           name="NewPassword" placeholder="New Password" required>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="NewPasswordConfirm" class="col-sm-3 control-label">New Password
-                                                (Confirm)</label>
-                                            <div class="col-sm-9">
-                                                <div class="form-line">
-                                                    <input type="password" class="form-control" id="NewPasswordConfirm"
-                                                           name="NewPasswordConfirm"
-                                                           placeholder="New Password (Confirm)" required>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <div class="col-sm-offset-3 col-sm-9">
-                                                <button type="submit" class="btn btn-danger">SUBMIT</button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
+                        Quis pharetra a pharetra fames blandit. Risus faucibus velit Risus imperdiet mattis neque
+                        volutpat, etiam lacinia netus dictum magnis per facilisi sociosqu. Volutpat. Ridiculus nostra.
                     </div>
                 </div>
             </div>
@@ -778,26 +584,28 @@
 </section>
 
 <!-- Jquery Core Js -->
-<script src="../../plugins/jquery/jquery.min.js"></script>
+<script src="../../../plugins/jquery/jquery.min.js"></script>
 
 <!-- Bootstrap Core Js -->
-<script src="../../plugins/bootstrap/js/bootstrap.js"></script>
+<script src="../../../plugins/bootstrap/js/bootstrap.js"></script>
 
 <!-- Select Plugin Js -->
-<script src="../../plugins/bootstrap-select/js/bootstrap-select.js"></script>
+<script src="../../../plugins/bootstrap-select/js/bootstrap-select.js"></script>
 
 <!-- Slimscroll Plugin Js -->
-<script src="../../plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+<script src="../../../plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
 
 <!-- Waves Effect Plugin Js -->
-<script src="../../plugins/node-waves/waves.js"></script>
+<script src="../../../plugins/node-waves/waves.js"></script>
+
+<!-- Wait Me Plugin Js -->
+<script src="../../../plugins/waitme/waitMe.js"></script>
 
 <!-- Custom Js -->
-<script src="../../js/admin.js"></script>
-<script src="../../js/pages/examples/profile.js"></script>
+<script src="../../../js/admin.js"></script>
+<script src="../../../js/pages/cards/colored.js"></script>
 
 <!-- Demo Js -->
-<script src="../../js/demo.js"></script>
+<script src="../../../js/demo.js"></script>
 </body>
-
 </html>

@@ -34,4 +34,9 @@ class HomeController extends BaseController
     {
         return view('about');
     }
+
+    public function experiences()
+    {
+        return view('experiences');
+    }
 }
